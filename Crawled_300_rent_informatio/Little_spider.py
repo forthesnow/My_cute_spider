@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests,pymongo
 
+#创建mongo数据表
 client = pymongo.MongoClient('localhost',27017)
 xiaozhu = client['xiaozhu']
 links = xiaozhu['links']
