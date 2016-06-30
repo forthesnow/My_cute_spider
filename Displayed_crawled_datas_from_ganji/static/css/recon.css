@@ -1,0 +1,24 @@
+#shanzhai,#tubiao{
+	cursor: pointer;
+}
+#charts,#counts{
+	margin: 5px 0 5px 0;
+	width: 70%;
+}
+#pics{
+	float:left;
+	margin:5px;
+	height:80px;
+	width:80px;
+}
+#areas{
+	float:left;
+	margin:5px;
+	height:80px;
+	width:80px;
+}
+#areas span{
+	 margin-left:10px;
+	 color:grey;
+	 font-weight: bold;
+}

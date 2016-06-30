@@ -1,0 +1,97 @@
+{% extends 'new_base.html' %}
+
+{% block grid %}
+<div class="ui equal width grid" id="counts" >
+        <div class="row">
+          <div class="column">
+            <div class="ui red segment">
+              <div class="ui statistic">
+                <div class="value">
+                  {{ counts }}
+                </div>
+                <div class="label">
+                    item counts
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui blue segment">
+              <div class="ui statistic">
+                <div class="value">
+                  50
+                </div>
+                <div class="label">
+                  channel counts
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <div class="ui container segment">
+              <div class="ui divided items">
+              {% for item in ItemInfo %}
+                <div class="item">
+                  <div class="content">
+                      <img class="ui small image" src="{{ item.img }}" id="pics">
+                    <a class="ui header violet" href="{{ item.url }}"  target='_blank'>
+                      {{ item.title }}
+                    </a>
+                    <div class="sub header right floated">
+                    {% for date in item.pub_date %}
+                        <span>
+                            {{ date }}
+                        </span>
+                    {% endfor %}
+                    </div>
+                    <div class="description" style="margin:10px;">
+                        {% for are in item.area %}
+                         <span style="margin-left:10px;color:grey;font-weight: bold;">      {{ are }}      </span>
+                        {% endfor %}
+                    </div>
+                    <div class="extra">
+                    {% for cate in item.cates %}
+                      <div class="ui brown basic label ">
+                        {{ cate }}
+                      </div>
+                    {% endfor %}
+                    </div>
+
+                  </div>
+
+                </div>
+              {% endfor %}
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="ui three column centered grid">
+        <div class="column">
+            <div class="ui small pagination menu">
+                {% if ItemInfo.has_previous %}
+                <a class="icon item" href="?page={{ ItemInfo.previous_page_number }}">
+                    <i class="left arrow icon"></i>
+                </a>
+                {% endif %}
+
+                <div class="item">
+                    {{ ItemInfo.number }} of {{ ItemInfo.paginator.num_pages }}
+                </div>
+
+                {% if ItemInfo.has_next %}
+                <a class="icon item" href="?page={{ ItemInfo.next_page_number }}">
+                    <i class="right arrow icon"></i>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

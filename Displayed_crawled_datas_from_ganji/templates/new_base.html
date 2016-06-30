@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      Welcome to datalab !
+    </title>
+    <link rel="stylesheet" href="{% static 'css/semantic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/recon.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/semantic.js' %}"></script>
+    <script src="{% static 'js/exporting.js' %}"></script>
+    <script src="{% static 'js/highcharts.js' %}"></script>
+    <script src="{% static 'js/highcharts-more.js' %}"></script>
+
+  </head>
+
+  <body>
+    <div class="ui thin visible left sidebar inverted vertical menu">
+      <div class="header item">
+        <img src="{% static 'images/logo2.png' %}">
+      </div>
+      <div class="item" id="shanzhai">
+        Doucument
+        <i class="browser icon"></i>
+      </div>
+      <div class="item" id="tubiao">
+        Charts
+        <i class="bar chart icon"></i>
+      </div>
+      <div class="item">
+        Others
+        <i class="idea icon"></i>
+      </div>
+    </div>
+
+    <div class="pusher">
+      <div class="ui menu">
+        <div class="header item" id="menu">
+          Menu
+          <i class="content icon"></i>
+        </div>
+        <div class="item">
+          About us
+        </div>
+        <div class="item">
+          Location
+        </div>
+        <div class="item">
+          Others
+        </div>
+      </div>
+
+      {% block grid %}{% endblock %}
+    </div>
+    <script>
+    $('#menu').click(function () {
+      $('.ui.sidebar').sidebar('toggle');
+    });
+    $('#tubiao').click(function () {
+        window.location.href="/chart/";
+    });
+    $('#shanzhai').click(function () {
+        window.location.href="/index/";
+    });
+    </script>
+  {% block chartjs %}{% endblock %}
+
+  </body>
+</html>
