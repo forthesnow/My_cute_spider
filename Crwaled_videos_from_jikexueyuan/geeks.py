@@ -112,6 +112,10 @@ for src in tobedone:
         print('Downloading ',e['name'],'....\n',src)
         try:
             urllib.request.urlretrieve(src,e['name'])   
+            video_done.insert({
+                'src':e['src'],
+                'name':e['name']
+            })
         except:
             print('download failed!')
             video_fal.insert({'name':e['name'],'src':src})
